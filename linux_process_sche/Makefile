@@ -1,4 +1,6 @@
-obj-m:=module_hello.o #将.c的生成文件.o作为目标文件（自动识别，不需要写.c）
+#将.c的生成文件.o作为目标文件（自动识别，不需要写.c）
+#obj-m:=module_hello.o 
+obj-m:=task_print.o 
 CURRENT_PATH := $(shell pwd)#当前路径	
 KERNEL_VERSION := $(shell uname -r)#当前内核版本
 KERNEL_PAYH := /lib/modules/$(KERNEL_VERSION)/build #当前内核路径（本人换过核，为当前版本的内核路径）
