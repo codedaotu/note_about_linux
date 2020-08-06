@@ -22,6 +22,7 @@
 
 struct hrtimer timer;
 static unsigned long *ptr_avenrun;
+// 由于内核中的条件编译，导致运行此段程序。(#ifdef CONFIG_ARCH_STACKWALK)这个定义是默认打开的，因此不能执行下面代码。
 struct stack_trace {
 	unsigned int nr_entries, max_entries;
 	unsigned long *entries;
