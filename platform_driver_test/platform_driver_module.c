@@ -1,11 +1,11 @@
-#include <linux/module.h>
+#include <linux/acct.h>
 #include <linux/version.h>
 #include <linux/kernel.h>
 #include <linux/types.h>
 #include <linux/init.h>
 #include <linux/platform_device.h>
 #include <linux/device.h>
-#include "name.h"
+#include <linux/module.h>
 static int my_probe(struct platform_device *dev)
 {
 	printk("my_probe running \n");
@@ -21,7 +21,7 @@ struct platform_driver my_driver={
 	.probe = my_probe,
 	.remove = my_remove,
 	.driver = {
-	.name=PLATFORM_NAME,
+	.name="casey_dev",
 	}
 };
 
@@ -42,5 +42,7 @@ module_exit(my_driver_exit);
 
 MODULE_AUTHOR("casey");
 MODULE_LICENSE("GPL");
-MODULE_ALIAS("platform_driver_test");
+//MODULE_ALIAS("platform:casey_dev1");
+//MODULE_ALIAS("UBS:casey_dev");
+MODULE_ALIAS("platform:casey_dev");
 
